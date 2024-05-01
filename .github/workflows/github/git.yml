@@ -37,38 +37,10 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Steps 3 Execute collection
-        run: newman run ./Login.json -e ./Login-env.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
-
-      # Runs a set of commands using the runners shell
-      - name: Steps 4 Execute collection
-        run: newman run ./Users.json -e ./Users-env.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
-        
-      # Runs a set of commands using the runners shell
-      - name: Steps 5 Execute collection
-        run: newman run ./Novo Cadastro usuario.json -e ./Novo Cadastro usuario-env.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
-
+        run: newman run ./Quality Hunters.postman_collection.json -e ./Hunters-1.postman_environment.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
+    
      # Runs a set of commands using the runners shell
-      - name: Steps 6 Execute collection
-        run: newman run ./Api-user-cout.json -e ./Api-user-cout-env.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
-
-     # Runs a set of commands using the runners shell
-      - name: Steps  Execute collection
-        run: newman run ./Api-user-id.json -e ./Api-user-id-env.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
-
-     # Runs a set of commands using the runners shell
-      - name: Steps 6 Execute collection
-        run: newman run ./Atualizar Dados.json -e ./Atualizar Dados --env.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
-
-     # Runs a set of commands using the runners shell
-      - name: Steps 7 Execute collection
-        run: newman run ./Delete de usuario.json -e ./Delete de usuario --env.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
-
-    # Runs a set of commands using the runners shell
-      - name: Steps 8 Execute collection
-        run: newman run ./campo Status.json -e ./campo Status --env.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
-   
-     # Runs a set of commands using the runners shell
-      - name: Steps 9 Archive production artifacts
+      - name: Steps 4 Archive production artifacts
         uses: actions/upload-artifacts@v4
         with:
            name: report
