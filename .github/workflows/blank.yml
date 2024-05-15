@@ -61,16 +61,13 @@ jobs:
 
       - name: Step 3 Execute collection
 
-        run: newman run qh.postman_collection.json -e h-1.postman_environment.json --reporters cli, -r htmlextra --reporter-htmlextra-export
- 
+        run: newman run qh.postman_collection.json -e h-1.postman_environment.json --reporters cli, -r htmlextra --reporter-htmlextra-export./result/Report.html
+      
       # Runs a set of command using the runners shell
 
-      - name: Step 4 Archive production artifacts
-
+      - name: Etapa 04 - Salvando o Resultado dos Testes
         uses: actions/upload-artifact@v4
-
+        if: always()
         with:
-
-             name: report
-
-             path: ./results/Report.html
+          name: report
+          path: ./result/
