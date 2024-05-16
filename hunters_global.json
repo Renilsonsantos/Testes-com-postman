@@ -1,0 +1,15 @@
+{
+	"id": "ffad1f8d-54a6-4703-8bbf-72e80f4f8d67",
+	"values": [
+		{
+			"key": "password",
+			"value": "1234@Test",
+			"type": "secret",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2024-05-16T00:37:11.471Z",
+	"_postman_exported_using": "Postman/11.1.1"
+}
