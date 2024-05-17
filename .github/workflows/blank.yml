@@ -93,12 +93,12 @@ jobs:
         uses: actions/download-artifact@v4
         with: 
           name: resultado-testes
-          path: results/
+          path: result/
   
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: results/
+          path: result/
   
       - name: Deploy to Github Pages
         id: deployment
