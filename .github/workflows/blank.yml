@@ -1,4 +1,3 @@
-
 # This is a basic workflow to help you get started with Actions
  
 name: Teste postman
@@ -27,7 +26,7 @@ jobs:
 
   # This workflow contains a single job called "build"
 
-  build:
+  test:
 
     # The type of runner that the job will run on
 
@@ -61,7 +60,7 @@ jobs:
 
       - name: Step 3 Execute collection
 
-        run: newman run hunters_colle.json -e hunters_env.json -g hunters_global.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./result/Report.html
+        run: newman run hunters_colle.json -e hunters_env.json -g hunters_global.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./result/Report.html --reporter-htmlextra-browserTitle "Teste API Postman" --reporter-htmlextra-title "Teste API Postman"
       
       # Runs a set of command using the runners shell
 
@@ -71,3 +70,36 @@ jobs:
         with:
           name: report
           path: ./result/
+     
+  deploy:
+    name: configurar site
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+    - test
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+     name: github-pages
+     url: https://Renilsonsantos.github.io/Testes-de-API-com-Postman-Quality-Hunter-api-postman/report.html
+    
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+  
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with: 
+          name: report
+          
+  
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./
+  
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
