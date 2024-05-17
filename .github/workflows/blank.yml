@@ -83,7 +83,7 @@ jobs:
       id-token: write
     environment:
      name: github-pages
-     url: https://naracyntia.github.io/Testes-de-API-com-Postman-Quality-Hunter-api-postman/report.html
+     url: https://Renilsonsantos.github.io/Testes-de-API-com-Postman-Quality-Hunter-api-postman/report.html
     
     steps:
       - name: Setup Pages
