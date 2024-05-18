@@ -69,7 +69,7 @@ jobs:
         if: always()
         with:
           name: report
-          path: ./result/
+          path: result/
      
   deploy:
     name: configurar site
@@ -93,13 +93,13 @@ jobs:
         uses: actions/download-artifact@v4
         with: 
           name: report
-          path: ./
+          path: result/
           
   
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./
+          path: result/
   
       - name: Deploy to Github Pages
         id: deployment
